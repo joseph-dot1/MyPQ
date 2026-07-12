@@ -1,0 +1,23 @@
+{
+  "name": "MyPQ — Past questions, properly",
+  "short_name": "MyPQ",
+  "description": "Practice real past exam questions for your polytechnic courses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF7",
+  "theme_color": "#1D2E8F",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
