@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* The Answer Booklet palette */
+  --ink: #1d2e8f;
+  --ink-deep: #101b52;
+  --paper: #fafaf7;
+  --paper-line: #e4e6ef;
+  --mark-right: #0e7c4a;
+  --mark-wrong: #c4322e;
+  --highlight: #ffd34d;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer components {
+  /* Signature element: the Course Stamp. Mono, uppercase, 1.5px ink border,
+     slight -1° rotation — the rubber stamp on a marked script. */
+  .stamp {
+    @apply inline-block font-mono uppercase text-ink text-sm font-semibold tracking-wide;
+    border: 1.5px solid var(--ink);
+    border-radius: 6px;
+    padding: 1px 8px;
+    transform: rotate(-1deg);
+  }
+
+  .card {
+    @apply bg-paper border border-paper-line rounded-xl shadow-card;
+  }
+
+  /* Ruled-line motif: section dividers echo booklet lines. */
+  .rule {
+    @apply border-t border-paper-line;
+  }
+
+  .btn {
+    @apply w-full min-h-12 rounded-xl bg-ink text-paper font-semibold text-base
+      flex items-center justify-center px-4 disabled:opacity-50 active:bg-ink-deep
+      transition-colors duration-150;
+  }
+
+  .btn-secondary {
+    @apply w-full min-h-12 rounded-xl bg-transparent text-ink font-semibold text-base
+      border border-ink flex items-center justify-center px-4 disabled:opacity-50;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-paper-line bg-white px-4 py-3 text-base
+      focus:outline-none focus:border-ink;
+  }
+
+  .page {
+    @apply mx-auto max-w-content px-5;
+  }
+
+  .fade-in {
+    animation: fade-in 150ms ease-out;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes timer-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.timer-pulse {
+  animation: timer-pulse 1s ease-in-out infinite;
+}
